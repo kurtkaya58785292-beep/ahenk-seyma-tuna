@@ -1,101 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Ahenk ❤️</title>
-
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd6e8, #ffecec);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
-
-#container {
-    text-align: center;
-}
-
-h1 {
-    font-size: 32px;
-    margin-bottom: 30px;
-}
-
-button {
-    padding: 15px 30px;
-    font-size: 22px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    margin: 10px;
-    transition: all 0.3s ease;
-}
-
-#yes {
-    background: #4CAF50;
-    color: white;
-}
-
-#no {
-    background: #f44336;
-    color: white;
-    position: relative;
-}
-
-.heart {
-    position: fixed;
-    bottom: 0;
-    font-size: 24px;
-    animation: floatUp 4s linear forwards;
-}
-
-@keyframes floatUp {
-    to {
-        transform: translateY(-600px);
-        opacity: 0;
-    }
-}
-
-.flower {
-    position: fixed;
-    top: -40px;
-    font-size: 30px;
-    animation: fall 5s linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Ahenk 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #ffe6f0;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        .flower {
+            position: fixed;
+            top: -50px;
+            font-size: 30px;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/03/audio_9c1c9c3b6c.mp3" type="audio/mpeg">
+<h1 id="question">Ahenk ❤️ benimle barışır mısın?</h1>
+
+<button id="yes">Evet</button>
+<button id="no">Hayır</button>
+
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/03/audio_9c1c9c3b6c.mp3" type="audio/mpeg">
 </audio>
 
-<div id="container">
-    <h1 id="question">Ahenk ❤️ benimle barışır mısın?</h1>
-    <button id="yes">Evet</button>
-    <button id="no">Hayır</button>
-</div>
-
 <script>
-let noCount = 0;
-let yesScale = 1;
+let yesBtn = document.getElementById("yes");
+let noBtn = document.getElementById("no");
+let question = document.getElementById("question");
+let music = document.getElementById("music");
 
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
-const question = document.getElementById("question");
-const music = document.getElementById("bgMusic");
+let count = 0;
 
-function createHeart() {
-    const h = document
+yesBtn.onclick = function () {
+    music.play();
+    question
